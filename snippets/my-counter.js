@@ -1,10 +1,10 @@
 class MyCounter extends HTMLElement {
-  increments = 1;
+  stepSize = 1;
   #count = 0;
   #button = null;
 
   static get observedAttributes() {
-    return ["increments"];
+    return ["step-size"];
   }
 
   constructor() {
@@ -16,21 +16,21 @@ class MyCounter extends HTMLElement {
     this.#button = document.createElement("button");
     this.shadowRoot.append(this.#button);
     this.#button.addEventListener("click", () => {
-      this.#count += this.increments;
+      this.#count += this.stepSize;
       this.render();
     });
     this.render();
   }
 
   render() {
-    this.#button.innerText = `click to increment by ${this.increments}: ${
+    if (!this.#button) return;
+    this.#button.innerText = `add ${this.stepSize} to ${
       this.#count
     }`;
   }
 
   attributeChangedCallback(_name, _oldValue, newValue) {
-    const convertedValue = Number(newValue);
-    this.increments = Number.isNaN(convertedValue) ? undefined : convertedValue;
+    this.stepSize = Number.parseInt(newValue);
     this.render();
   }
 

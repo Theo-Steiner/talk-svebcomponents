@@ -1,7 +1,12 @@
 <script setup lang="ts">
+import { ref } from "vue";
 import "../snippets/my-counter.js";
+const increments = ref(1);
 </script>
 
 <template>
-  <my-counter increments="5"></my-counter>
+  <div class="flex flex-col items-center">
+    <my-counter :increments.attr="increments"></my-counter>
+    <input type="range" v-model="increments" />
+  </div>
 </template>
