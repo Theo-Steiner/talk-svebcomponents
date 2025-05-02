@@ -15,85 +15,124 @@ mdc: true
 Theo Steiner
 
 <!--
-- introduction
-- maybe joke about having bitten of more than I can chew with that title
+Hey everyone, welcome to "The Ultimate Guide to Building Web Components with Svelte".
+If you've ever been nervous about speaking in front of people, try putting 'ultimate guide' in name of your talk.
+Really ups the game a bit.
+But before you watch me crash and burn trying to live up to that title,
+Let's get a bit meta for a second and talk about why you would even want to build web components in the first place.
 -->
 
 ---
 
-# Use the Platform
+```yaml
+layout: two-cols
+```
 
-Rich hate tweets, one by one
+<div style="background-image: url(/assets/harris_richard.png);" class="relative h-full bg-contain bg-no-repeat">
+  <div 
+    style="background-image: url(/assets/harris_lizard.png);"
+    class="absolute inset-0 bg-contain bg-no-repeat opacity-0 transition-opacity" 
+    :class="{
+      'opacity-50': $clicks === 2,
+      'opacity-100': $clicks >= 3
+    }"
+  />
+  <div 
+    v-click="4"
+    style="background-image: url(/assets/harris_lizard_conspiracy.png);"
+    class="absolute inset-0  bg-contain bg-no-repeat" 
+  />
+</div>
+
+::right::
+
+<div class="relative h-full w-full">
+<div v-click="1" style="background-image: url(/assets/rich_harris_why_i_dont_use_webcomponents.png);" class="bg-contain bg-no-repeat bg-center absolute inset-0"/>
+<div class="absolute inset-0 transform rotate-6 scale-75">
+  <Tweet v-click="2" id="1839484645194277111"/>
+</div>
+<div class="absolute inset-0 transform -rotate-6">
+  <Tweet v-click="3" id="1844134732306792631"/>
+</div>
+</div>
 
 <!--
-Before we get into the weeds of building web components with svelte, I'd like to take a small excursion into the meta discussion surrounding web components.
-While some engineers spend their days writing tweets about how needlessly complex web development has gotten,
-and how engineers turn to tools like svelte to overengineer buttons with wasteful amounts of custom javascript,
-when they could just "use the platform" and build things using native features like web components instead,
-others detest web components as a technology built perpendicular to real developer needs with no real world use cases.
-Before sitting through a thirty minute talk on Web Components, I figured it might be nice to know if you should even be working with that technology in the first place.
 Since most of you folks are probably devote disciples of his,
-I assume you value Svelte Jesus's, urgh, I mean Rich Harris's opinion on the matter.
-But, since I'm terrified of unscripted live interaction, instead of asking the real Rich in the audience, let's scour the interwebs for his true feelings about custom elements instead.
+I thought we could maybe get Svelte Jesus, ugh I mean, Rich Harris to tell you why you should use web components.
+But, since I'm terrified of unscripted live interaction, instead of asking the real Rich in the audience, I did what any sane person would do and went on twitter to find his endorsements.
 
-** Rich Hate Tweets **
-
-Damn... that was devastating, but before you leave the room just now, let me tell you that of course Rich would say something like that.
-After all, he is one of them. Big JavaScript. THEY want you to send bloated bundles to your users so they can feed on your bandwidth!
-Let's maybe look at somebody more trustworthy.. You know, somebody who has no reason to hide the truth from you to farm orange github stars.
-Like, let's say, someone who gives a talk on web components. Like, you know, me!
+Let's see, what do we have here..?
+[click] "WHY I DON'T USE WEB COMPONENTS"... uhm okay, maybe rich wasn't as pro-platform as I thought..
+[click] "If I could bill someone for the time I've spent working __around__ web components in svelte, I'd be a rich man"
+...Now that's a bit negative, don't you think?
+[click] "the right answer is 'don't use web components and you'll never have to think about this madness'"
+Damn... that's devastating.
+[click] But, of course Rich would say something like that.
+I mean look at his lizardy face!
+He __is__ one of them. Big JavaScript. THEY want you to send bloated bundles to your users so they can feed on your bandwidth!
+Web Components surely are the future, I mean, "USE THE PLATFORM!", right?!
+So let's maybe consult somebody more trustworthy to get our facts right..
+You know, somebody who has no reason to hide the truth from you in order to farm orange github stars.
+Like, let's say, someone who gives a talk on web components.
+Like, you know, me!
 -->
 
 ---
 
-# Use the Platform
+```yaml
+layout: two-cols
+```
 
-Theo hate tweets, one by one
+<div style="background-image: url(/assets/theo_steiner.webp);" class="relative h-full bg-cover bg-no-repeat bg-center mx-1.5rem"/>
 
-<!--
+::right::
 
-** Theo Hate Tweets **
+<div class="relative h-full w-full">
 
-Okay... that wasn't exactly a glowing review either..
-So what am I doing here, why would we even want to build web components with svelte when they come with so many issues?
--->
-
----
-
-# Why Use Web Components?
-
-Web Components are by no means a perfect technology & if you don't have a problem web components solve, you probably shouldn't use them.
-
-- Technology Agnostic
-  - they work everywhere
-  - allows you to distribute web components without having to care about what tech stacks your users fancy
-
-<!--
-In theory, you'd probably always want to stick to a modern framework like svelte to build all of your apps and components in the idiomatic syntax of the framework.
-That way, you get better performance, a better developer experience and none of the headaches that come with web components.
-But in practice, things are messy & we don't always get to work with nice unified tech stacks.
-We might have multiple tech stacks across products, or even ship to third parties where we don't know what technology they are using.
-In my opinion, this is the use case where web components most shine. Not like the name suggests, as "components" that help you organize individual pieces of codes,
-but rather as encapsulation tools that let you distribute your code without having to worry about compatibility.
-For example at the company I work at, we use custom elements to share reusable components between different products.
-That way, even if the frameworks or framework version differ across products, we still can share an implementation.
-Another use case that comes to mind is distributing small self-contained units of code.
-Like, for example, a checkout widget that you can just drop onto your website to handle payments.
--->
-
----
-
-# Self Introduction
+<v-clicks>
 
 - Theo Steiner (テオ)
-- Born & Raised in Germany
-- Living in Tokyo (Come visit!)
-- Software Engineer at LY Corporation (I work on `LINE Messenger`)
-- Svelte Ambassador & Core Member of Svelte Japan
+  - <ri-bluesky-fill/> @theosteiner.de
+- Software Engineer at LY Corporation in Tokyo
+  - <ri-line-fill/> working on `LINE Messenger`
+- Certified Svelte Stan
+  - <ri-svelte-fill/> Svelte Ambassador & Member of Svelte Japan
+- Working with Web Components
+  - <ion-logo-web-component/> Using Svelte-built WCs in Production
+- Not a reptiloid
+  - <ion-logo-python/> use the platform!
+
+</v-clicks>
+
+<div class="absolute inset-0 transform -rotate-6">
+  <Tweet v-click="6" id="1833417673251946987"/>
+</div>
+<div v-click="7" style="background-image: url(/assets/theo_whats_in_the_box.png);" class="bg-contain bg-no-repeat bg-center absolute inset-0"/>
+<div v-click="8" style="background-image: url(/assets/theo_components_at_home.png);" class="bg-contain bg-no-repeat bg-center absolute inset-0 transform rotate-6"/>
+</div>
 
 <!--
-- self introduction
+So, who am I, you ask?
+[click] My name is Theo Steiner and I'm a software engineer at LY Corporation in Tokyo.
+[click] For my dayjob, I get to work on LINE, which is the most popular messenger app in Japan with over 150 million monthly active users.
+[click] I'm also a "svelte ambassador", which basically means I'm a certified svelte stan, and have been for years.
+Svelte was actually my introduction to frontend development and I owe a lot to the framework and the awesome people behind it.
+To give back to the community, I help organize meetups in Japan, so if you're ever in the area, feel free to reach out.
+[click] And of course, I work with web components on a daily basis, hence this talk.
+[click] Also, and I can't believe I have to say this, but I'm totally not JavaScript loving reptile in disguise, I promise!
+
+So now that you know that my opinion on web components can be trusted, let's look through my tweets to try undo the damage Rich's statements have done to web components.
+
+[click] "pretending web components have solved frontend is just so disingenuous. 🌶️ there are just so many rough edges, I think it is literally impossible to build anything substantial without having to cut at least some corners"
+Wait... what? That one must have snuck in there by accident, I thought we wanted to be positive here.
+[click] "building accessible web components is the kind of task that makes maintaining cobol mainframes look like a dream job"
+this is getting worse by the minute.
+[click] Okay, I give up, Big JavaScript won, web components are not a silver bullet.
+It's true, in most cases you probably shouldn't use them & stick to a modern frontend framework... like svelte!
+But while they might not the future for all of Web Development, they do have some properties that make them a invaluable for certain, specific use cases.
 -->
+
+---
 
 ---
 
@@ -112,6 +151,8 @@ layout: two-cols-header
   - The `<template>` & `<slot>` elements
   - Shadow Dom
 - Basically let's you declare a new html element & compose it in your dom however you like
+- Encapsulation
+  - web components are technology agnostic
 
 </v-clicks>
 
@@ -132,12 +173,21 @@ layout: two-cols-header
 An ultimate guide to building web components would not be complete, without giving a primer about what `web components` even are.
 The name "Web components" actually is an umbrella term for a collection of APIs, that allow us to build Components, that is,  a reusable piece of UI,
 using native browser features.
-Whil@e we are normally confined to using only html elements browsers provide, custom elements allow us to extend the html with elements we can implement ourselves.
+While we are normally confined to using only html elements browsers provide, custom elements allow us to extend the html with elements we can implement ourselves.
 These custom elements are implemented as classes that extend a base `HTMLElement` class and are notified about their state in the DOM via lifecycle methods.
 In order to compose with native html elements, they can define "holes" in their markup by using the `<slot>` element.
 If you have used svelte before version 5, you might be familiar with slots as a way to nest content within a component.
 The last API that is part of the web components standard is this thing called the "shadow dom" - a technology for attaching isolated DOM trees to our document.
 Simply put, it allows us to encapsulate our component's markup and styles, so that they are not affected by the outside world and vice versa.
+This encapsulation is precisely what makes them so powerful.
+While they might not be the best choice to base your stack on in a vacuum, in practice, things are messy & we don't always get to work with nice unified tech stacks.
+We might have multiple tech stacks across products, or even ship our code to third parties where we don't know what technology they are using.
+In my opinion, this is the use case where web components most shine. Not like the name suggests, as "components" that help you organize individual pieces of codes,
+but rather as encapsulation tools that let you distribute your code without having to worry about compatibility.
+For example at the company I work at, we use custom elements to share reusable components between different products.
+That way, even if the frameworks or framework version differ across products, we still can share an implementation.
+Another use case that comes to mind is distributing small self-contained units of code.
+Like, for example, a checkout widget that you can just drop onto your website to handle payments.
 -->
 
 ---
@@ -155,7 +205,7 @@ class: w-min
 </div>
 
 <!--
-Now let's quickly go over how custom elements are built using javascript.
+Now let's quickly go over how custom elements are built using vanilla javascript.
 While the example looks a bit verbose, it is actually just a very simple counter component, where the value the counter is incremented by can be set via an attribute.
 In this example, we subclass `HTMLElement` to create our own `MyCounter` custom element class.
 [click] To register the custom element we call customElements.define() passing in a tag name and the class we defined above.
@@ -173,9 +223,6 @@ Please note, that since html attributes are always strings, we need to convert t
 Since we don't have reactivity in vanilla JavaScript we need to manually call `render()` to reflect the changed state in the UI.
 [click] Finally, we have the `disconnectedCallback` lifecycle method, which is called when our element is removed from the DOM.
 This is where we can clean up side effects we caused during our component's lifetime, such as adding event listeners or rendering to the dom.
-
-
-TODO: Quite a bit of code, now let's see how we can build the same component using svelte.
 -->
 
 ---
