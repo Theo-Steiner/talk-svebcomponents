@@ -134,8 +134,6 @@ But while they might not the future for all of Web Development, they do have som
 
 ---
 
----
-
 ```yaml
 layout: two-cols-header
 ```
@@ -171,7 +169,7 @@ layout: two-cols-header
 
 <!--
 An ultimate guide to building web components would not be complete, without giving a primer about what `web components` even are.
-The name "Web components" actually is an umbrella term for a collection of APIs, that allow us to build Components, that is,  a reusable piece of UI,
+[click] The name "Web components" actually is an umbrella term for a collection of APIs, that allow us to build Components, that is,  a reusable piece of UI,
 using native browser features.
 While we are normally confined to using only html elements browsers provide, custom elements allow us to extend the html with elements we can implement ourselves.
 These custom elements are implemented as classes that extend a base `HTMLElement` class and are notified about their state in the DOM via lifecycle methods.
@@ -179,12 +177,13 @@ In order to compose with native html elements, they can define "holes" in their 
 If you have used svelte before version 5, you might be familiar with slots as a way to nest content within a component.
 The last API that is part of the web components standard is this thing called the "shadow dom" - a technology for attaching isolated DOM trees to our document.
 Simply put, it allows us to encapsulate our component's markup and styles, so that they are not affected by the outside world and vice versa.
-This encapsulation is precisely what makes them so powerful.
+[click] This encapsulation is precisely what makes web components worth using.
 While they might not be the best choice to base your stack on in a vacuum, in practice, things are messy & we don't always get to work with nice unified tech stacks.
-We might have multiple tech stacks across products, or even ship our code to third parties where we don't know what technology they are using.
-In my opinion, this is the use case where web components most shine. Not like the name suggests, as "components" that help you organize individual pieces of codes,
+We might have varying tech stacks across products, or even ship our code to third parties where we don't know what technology they are using.
+In my opinion, this is the use case where web components shine the most.
+Not like the name suggests, as "components" that help you organize individual pieces of codes,
 but rather as encapsulation tools that let you distribute your code without having to worry about compatibility.
-For example at the company I work at, we use custom elements to share reusable components between different products.
+For example at LINE, we use custom elements to share reusable components between different products.
 That way, even if the frameworks or framework version differ across products, we still can share an implementation.
 Another use case that comes to mind is distributing small self-contained units of code.
 Like, for example, a checkout widget that you can just drop onto your website to handle payments.
@@ -194,7 +193,7 @@ Like, for example, a checkout widget that you can just drop onto your website to
 
 ```yaml
 layout: image-left
-image: /assets/WebComponentLifecycle.png
+image: /assets/web_component_lifecycle.png
 backgroundSize: 75%
 class: w-min
 ```
@@ -227,17 +226,15 @@ This is where we can clean up side effects we caused during our component's life
 
 ---
 
-# Building Web Components with Svelte
+```yaml
+layout: two-cols
+```
 
-- TODO: build example component using svelte,
-- Custom Element via Compiler Setting: `customElements: true`
-- `Component.element` property contains constructor for our custom element
-- Constructor can be used to register custom element
-- Svelte lifecycle
+<div class="mx-1.5rem flex flex-col gap-4">
 
 ```svelte
 <script>
-  let {stepSize = 1} = $props()
+  let { stepSize = 1 } = $props()
   let count = $state(0)
 </script>
 
@@ -246,27 +243,75 @@ This is where we can clean up side effects we caused during our component's life
 </button>
 ```
 
+<v-clicks at="1">
+
 ```javascript
 // svelte.config.js
 export default {
   compilerOptions: {
-    customElements: true,
+    customElement: true,
   },
 };
 ```
 
+</v-clicks>
+
+<v-clicks at="2">
+
+```javascript
+import MyCounter from "./MyCounter.svelte";
+customElements.define(
+  "my-svelte-counter",
+  MyCounter.element
+);
+```
+
+</v-clicks>
+
+</div>
+
+::right::
+
+# Building Web Components with Svelte
+
+<v-clicks>
+
+- Custom Element via Compiler Setting
+  - `customElement: true`
+- `Component.element` property contains constructor
+  - can be used to register custom element
+
+</v-clicks>
+
 <!--
 As you just saw, building web components using vanilla JavaScript quickly turns your code into imperative spaghetti rather quickly.
-Since svelte allows us to build components with an elegant declarative syntax, we'd much rather use svelte to build custom elements instead.
-Literally all we have to do for this to work is adding `customElement: true` to the compiler settings in our svelte config.
+I don't have to tell you that svelte allows us to write the same functionality in way less, declarative code.
+But how do we turn this svelte component into a custom element?
+[click] Literally all we have to do for this to work is adding `customElement: true` to the compiler settings in our svelte config.
 If we build our project now, an `element` property is newly added to the default export of our compiled svelte component.
-This property contains the constructor for a custom element version of our component.
+[click] This property contains the constructor for a custom element version of our component.
 We can now pass this constructor alongside a tag name to `customElements.define()` to register the component with the window's custom element registry.
 Once we've registered it, all that's left to do is using our tag name to reference the element within our html & our svelte component magically renders within any context,
 be it vanilla JS or another framework like react or vue.
+-->
 
-(comment: I would personally recommend using a library dedicated to building custom elements, like `lit`,
-for cases where you really need to get into the nitty gritty of web components)
+---
+
+```yaml
+layout: image-left
+image: /assets/svelte_web_component_lifecycle.png
+backgroundSize: 50%
+```
+
+# Anatomy of a Svelte-built Web Component
+
+- Empty `shell` web component
+- Svelte component mounted in wrapper's shadow DOM
+  - svelte component is just a regular svelte component
+- mount/unmount of inner component delayed by one microtask
+
+<!--
+TODO: explain lifecycle & svelte component wrapped by an empty web component shell responsible for mounting & unmounting, as well as converting attributes to props.
 -->
 
 ---
@@ -279,6 +324,12 @@ for cases where you really need to get into the nitty gritty of web components)
   - extends
 - `$host` rune
 - `slots` being transformed
+
+<!--
+TODO: explain that our initial svelte component did not convert it's stepSize prop from a `step-size` attribute to a number & therefore has a bug.
+TODO: explain other settings possible using svelte:options (name, extends, shadowrootmode)
+TODO: explain `$host` rune
+-->
 
 ---
 
