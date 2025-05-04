@@ -192,15 +192,33 @@ Like, for example, a checkout widget that you can just drop onto your website to
 ---
 
 ```yaml
-layout: image-left
-image: /assets/web_component_lifecycle.png
-backgroundSize: 75%
-class: w-min
+layout: two-cols
+class: max-h-full overflow-auto
 ```
 
-<div class="max-h-full overflow-auto">
+<style>
+* {
+  scrollbar-width: none;
+}
+</style>
+
+<div class="relative h-full max-w-full mx-1.5rem overflow-hidden">
+<div v-click.hide="1" class="absolute inset-0 flex flex-col gap-4">
+
+<<< @/components/WcCounter.vue vue
+
 <WcCounter/>
-<<< @/snippets/my-counter.js {1|42-44|2-14|15-31|32-36|37-39}{maxHeight: '100%'}
+
+</div>
+
+<div v-click="1" style="background-image: url(/assets/web_component_lifecycle.png);" class="absolute inset-0 bg-contain bg-no-repeat"/>
+</div>
+
+::right::
+
+<div class="max-h-full overflow-auto" style="scrollbar-width: none;">
+<<< @/snippets/my-counter.js {1-26|1|42-44|2-14|15-31|32-36|37-39}{maxHeight: '100%'}
+
 </div>
 
 <!--
@@ -280,6 +298,7 @@ customElements.define(
   - `customElement: true`
 - `Component.element` property contains constructor
   - can be used to register custom element
+- TODO: but if we use it like this, we actually run into a bug
 
 </v-clicks>
 
@@ -291,27 +310,9 @@ But how do we turn this svelte component into a custom element?
 If we build our project now, an `element` property is newly added to the default export of our compiled svelte component.
 [click] This property contains the constructor for a custom element version of our component.
 We can now pass this constructor alongside a tag name to `customElements.define()` to register the component with the window's custom element registry.
-Once we've registered it, all that's left to do is using our tag name to reference the element within our html & our svelte component magically renders within any context,
+Once we've registered it, all that's left to do is using our tag name to reference the element within our html
+[click] & voila, our svelte built web component is ready to be used within any context,
 be it vanilla JS or another framework like react or vue.
--->
-
----
-
-```yaml
-layout: image-left
-image: /assets/svelte_web_component_lifecycle.png
-backgroundSize: 50%
-```
-
-# Anatomy of a Svelte-built Web Component
-
-- Empty `shell` web component
-- Svelte component mounted in wrapper's shadow DOM
-  - svelte component is just a regular svelte component
-- mount/unmount of inner component delayed by one microtask
-
-<!--
-TODO: explain lifecycle & svelte component wrapped by an empty web component shell responsible for mounting & unmounting, as well as converting attributes to props.
 -->
 
 ---
@@ -329,6 +330,36 @@ TODO: explain lifecycle & svelte component wrapped by an empty web component she
 TODO: explain that our initial svelte component did not convert it's stepSize prop from a `step-size` attribute to a number & therefore has a bug.
 TODO: explain other settings possible using svelte:options (name, extends, shadowrootmode)
 TODO: explain `$host` rune
+-->
+
+---
+
+```yaml
+layout: image-left
+image: /assets/svelte_web_component_lifecycle.png
+backgroundSize: 50%
+```
+
+# Anatomy of a Svelte-built Web Component
+
+- Empty `shell` web component
+- Svelte component mounted in wrapper's shadow DOM
+  - svelte component is just a regular svelte component
+- mount/unmount of inner component delayed by one microtask
+- convert attributes to props
+
+<!--
+So how is our svelte component turned into a web component?
+You might think that svelte as a compiler could generate something along the lines of the vanilla web component we wrote earlier.
+And in fact, up until Svelte 4 it actually used to do something just like that.
+But today, svelte employs more of an matrioshka approach to generating web components.
+On the outside, we have a barebones custom element.
+And then, on the inside, we have a regular svelte component.
+I think this becomes a bit clearer when we look at the lifecycle of a svelte-built web component.
+
+TODO: The outside layer is responsible for mounting and unmounting the inner component, as well as converting attributes to props.
+
+TODO: explain lifecycle & svelte component wrapped by an empty web component shell responsible for mounting & unmounting, as well as converting attributes to props.
 -->
 
 ---
