@@ -136,6 +136,7 @@ But while they might not the future for all of Web Development, they do have som
 
 ```yaml
 layout: two-cols-header
+class: grid-rows-2
 ```
 
 # What are web components?
@@ -150,7 +151,7 @@ layout: two-cols-header
   - Shadow Dom
 - Basically let's you declare a new html element & compose it in your dom however you like
 - Encapsulation
-  - web components are technology agnostic
+  - Web Components are frameowrk agnostic
 
 </v-clicks>
 
@@ -166,6 +167,8 @@ layout: two-cols-header
 </html>
 ```
 </div>
+
+::bottom::
 
 <!--
 An ultimate guide to building web components would not be complete, without giving a primer about what `web components` even are.
@@ -203,7 +206,7 @@ class: max-h-full overflow-auto
 </style>
 
 <div class="relative h-full max-w-full mx-1.5rem overflow-hidden">
-<div v-click.hide="1" class="absolute inset-0 flex flex-col gap-4">
+<div v-click.hide="1" class="absolute inset-0 flex flex-col gap-2">
 
 <<< @/components/WcCounter.vue vue
 
@@ -245,44 +248,26 @@ This is where we can clean up side effects we caused during our component's life
 ---
 
 ```yaml
-layout: two-cols
+layout: two-cols-header
 ```
 
-<div class="mx-1.5rem flex flex-col gap-4">
+# Building Web Components with Svelte
 
-```svelte
-<script>
-  let { stepSize = 1 } = $props()
-  let count = $state(0)
-</script>
+::left::
 
-<button onclick={() => count += stepSize}>
-  add {stepSize} to {count}
-</button>
-```
+<div class="mx-1.5rem flex flex-col gap-2">
+
+<<< @/snippets/MyCounter.svelte svelte
 
 <v-clicks at="1">
 
-```javascript
-// svelte.config.js
-export default {
-  compilerOptions: {
-    customElement: true,
-  },
-};
-```
+<<< @/svelte.config.js js
 
 </v-clicks>
 
 <v-clicks at="2">
 
-```javascript
-import MyCounter from "./MyCounter.svelte";
-customElements.define(
-  "my-svelte-counter",
-  MyCounter.element
-);
-```
+<<< @/snippets/my-svelte-counter.js js
 
 </v-clicks>
 
@@ -290,15 +275,14 @@ customElements.define(
 
 ::right::
 
-# Building Web Components with Svelte
-
 <v-clicks>
 
 - Custom Element via Compiler Setting
   - `customElement: true`
 - `Component.element` property contains constructor
   - can be used to register custom element
-- TODO: but if we use it like this, we actually run into a bug
+- But it does not yet work quite like expected...
+  - <SvelteWcCounter/>
 
 </v-clicks>
 
@@ -313,11 +297,28 @@ We can now pass this constructor alongside a tag name to `customElements.define(
 Once we've registered it, all that's left to do is using our tag name to reference the element within our html
 [click] & voila, our svelte built web component is ready to be used within any context,
 be it vanilla JS or another framework like react or vue.
+In fact, the slides you are looking at right now are built using vite, and we are seemlessly using a svelte component within them.
+However, there is one issue with the code we just wrote... let's try actually incrementing...
+Ooops, I'm not entirely sure, but I don't think this is how a counter is supposed to work...
 -->
 
 ---
 
 # Building Web Components with Svelte
+
+<!-- prettier-ignore-start -->
+
+````md magic-move
+
+<<< @/snippets/MyCounter.svelte svelte
+
+<<< @/snippets/MyCounterFixed.svelte svelte
+
+````
+
+<!-- prettier-ignore-end -->
+
+<v-clicks>
 
 - custom element `<svelte:options>`
   - name (`customElements.define`)
@@ -325,6 +326,8 @@ be it vanilla JS or another framework like react or vue.
   - extends
 - `$host` rune
 - `slots` being transformed
+
+</v-clicks>
 
 <!--
 TODO: explain that our initial svelte component did not convert it's stepSize prop from a `step-size` attribute to a number & therefore has a bug.

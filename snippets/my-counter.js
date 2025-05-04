@@ -1,10 +1,10 @@
 class MyCounter extends HTMLElement {
-  stepSize = 1;
+  increments = 1;
   #count = 0;
   #button = null;
 
   static get observedAttributes() {
-    return ["step-size"];
+    return ["increments"];
   }
 
   constructor() {
@@ -16,7 +16,7 @@ class MyCounter extends HTMLElement {
     this.#button = document.createElement("button");
     this.shadowRoot.append(this.#button);
     this.#button.addEventListener("click", () => {
-      this.#count += this.stepSize;
+      this.#count += this.increments;
       this.render();
     });
     this.render();
@@ -24,13 +24,13 @@ class MyCounter extends HTMLElement {
 
   render() {
     if (!this.#button) return;
-    this.#button.innerText = `add ${this.stepSize} to ${
+    this.#button.innerText = `add ${this.increments} to ${
       this.#count
     }`;
   }
 
   attributeChangedCallback(_name, _oldValue, newValue) {
-    this.stepSize = Number.parseInt(newValue);
+    this.increments = Number.parseInt(newValue);
     this.render();
   }
 
