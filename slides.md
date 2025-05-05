@@ -73,15 +73,15 @@ I thought we could maybe get Svelte Jesus, ugh I mean, Rich Harris to tell you w
 But, since I'm terrified of unscripted live interaction, instead of asking the real Rich in the audience, I did what any sane person would do and went on twitter to find his endorsements.
 
 Let's see, what do we have here..?
-[click] "WHY I DON'T USE WEB COMPONENTS"... uhm okay, maybe rich wasn't as pro-platform as I thought..
+[click] "WHY I DON'T USE WEB COMPONENTS"... that's probably just a clickbait title, right? Surely rich loves web components.
 [click] "If I could bill someone for the time I've spent working __around__ web components in svelte, I'd be a rich man"
-...Now that's a bit negative, don't you think?
+... uhm okay, maybe rich wasn't as pro-platform as I thought..
 [click] "the right answer is 'don't use web components and you'll never have to think about this madness'"
-Damn... that's devastating.
-[click] But, of course Rich would say something like that.
+Damn... that's some disgusting anti-web-components propaganda right here.
+[click] But, of course Rich would frame it like that.
 I mean look at his lizardy face!
-He __is__ one of them. Big JavaScript. THEY want you to send bloated bundles to your users so they can feed on your bandwidth!
-Web Components surely are the future, I mean, "USE THE PLATFORM!", right?!
+He __is__ one of them. Big JavaScript. THEY want you to send bloated bundles to your users so they can feed off your bandwidth!
+According to twitter evangelists Web Components are the future, I mean, "USE THE PLATFORM!", am I right?!
 So let's maybe consult somebody more trustworthy to get our facts right..
 You know, somebody who has no reason to hide the truth from you in order to farm orange github stars.
 Like, let's say, someone who gives a talk on web components.
@@ -94,7 +94,20 @@ Like, you know, me!
 layout: two-cols
 ```
 
-<div style="background-image: url(/assets/theo_steiner.webp);" class="relative h-full bg-cover bg-no-repeat bg-center mx-1.5rem"/>
+<div style="background-image: url(/assets/theo_angel.png);" class="relative h-full bg-contain bg-no-repeat">
+  <div 
+    style="background-image: url(/assets/theo_steiner.png);"
+    class="absolute inset-0 bg-contain bg-no-repeat opacity-0 transition-opacity" 
+    :class="{
+      'opacity-100': $clicks > 1,
+    }"
+  />
+  <div 
+    v-click="5"
+    style="background-image: url(/assets/theo_lizard.png);"
+    class="absolute inset-0  bg-contain bg-no-repeat" 
+  />
+</div>
 
 ::right::
 
@@ -132,15 +145,16 @@ To give back to the community, I help organize meetups in Japan, so if you're ev
 [click] And of course, I work with web components on a daily basis, hence this talk.
 [click] Also, and I can't believe I have to say this, but I'm totally not JavaScript loving reptile in disguise, I promise!
 
-So now that you know that my opinion on web components can be trusted, let's look through my tweets to try undo the damage Rich's statements have done to web components.
+So now that you know that my opinion on web components can be trusted, let's look through some of my tweets to try undo the damage Rich's statements have done to web components.
 
-[click] "pretending web components have solved frontend is just so disingenuous. 🌶️ there are just so many rough edges, I think it is literally impossible to build anything substantial without having to cut at least some corners"
+[click] "pretending web components have solved frontend is just so disingenuous. 🌶️"
 Wait... what? That one must have snuck in there by accident, I thought we wanted to be positive here.
 [click] "building accessible web components is the kind of task that makes maintaining cobol mainframes look like a dream job"
 this is getting worse by the minute.
-[click] Okay, I give up, Big JavaScript won, web components are not a silver bullet.
-It's true, in most cases you probably shouldn't use them & stick to a modern frontend framework... like svelte!
-But while they might not the future for all of Web Development, they do have some properties that make them a invaluable for certain, specific use cases.
+[click] ...Okay, I give up, Big JavaScript won. I have to admit, web components are not the silver bullet some folks hope them to be.
+It's true, in most cases you probably shouldn't even use them & stick to a modern frontend framework... like svelte!
+But while they might not be the future of all of Web Development, they do have some cool properties that make them an invaluable resource for certain, specific use cases.
+So please don't leave the room just yet!
 -->
 
 ---
@@ -154,15 +168,14 @@ class: grid-rows-2
 
 ::left::
 
-<v-clicks class="min-h-full">
+<v-clicks depth="2" class="min-h-full">
 
 - A set of Plattform Standards for building UI Components
   - Custom Elements
   - The `<template>` & `<slot>` elements
   - Shadow Dom
-- Basically let's you declare a new html element & compose it in your dom however you like
 - Encapsulation
-  - Web Components are frameowrk agnostic
+  - Framework-agnostic reusable pieces of UI
 
 </v-clicks>
 
@@ -183,22 +196,23 @@ class: grid-rows-2
 
 <!--
 An ultimate guide to building web components would not be complete, without giving a primer about what `web components` even are.
-[click] The name "Web components" actually is an umbrella term for a collection of APIs, that allow us to build Components, that is,  a reusable piece of UI,
+[click] The name "Web components" actually is an umbrella term for a collection of APIs, that allow us to build Components, that is, reusable pieces of UI,
 using native browser features.
-While we are normally confined to using only html elements browsers provide, custom elements allow us to extend the html with elements we can implement ourselves.
-These custom elements are implemented as classes that extend a base `HTMLElement` class and are notified about their state in the DOM via lifecycle methods.
-In order to compose with native html elements, they can define "holes" in their markup by using the `<slot>` element.
+[click] While we are normally confined to using only html elements provided by the browser, the custom element spec allows us to extend the html with elements we can implement ourselves.
+These custom elements are implemented as classes that extend a base `HTMLElement` class.
+Once mounted to the DOM, they are notified about state changes via lifecycle methods.
+[click] In order to compose with with other html elements, they can define "holes" in their markup using the `<slot>` element.
 If you have used svelte before version 5, you might be familiar with slots as a way to nest content within a component.
-The last API that is part of the web components standard is this thing called the "shadow dom" - a technology for attaching isolated DOM trees to our document.
+[click] The last API that is part of the web components standard is this thing called the "shadow dom" - a technology for attaching isolated DOM trees to our document.
 Simply put, it allows us to encapsulate our component's markup and styles, so that they are not affected by the outside world and vice versa.
 [click] This encapsulation is precisely what makes web components worth using.
 While they might not be the best choice to base your stack on in a vacuum, in practice, things are messy & we don't always get to work with nice unified tech stacks.
 We might have varying tech stacks across products, or even ship our code to third parties where we don't know what technology they are using.
 In my opinion, this is the use case where web components shine the most.
-Not like the name suggests, as "components" that help you organize individual pieces of codes,
-but rather as encapsulation tools that let you distribute your code without having to worry about compatibility.
-For example at LINE, we use custom elements to share reusable components between different products.
-That way, even if the frameworks or framework version differ across products, we still can share an implementation.
+[click] Not like the name suggests, as "components" that help you organize individual units of code,
+but rather as an encapsulation tool that lets you distribute individual pieces of UI without having to worry about compatibility.
+For example at LINE, we use custom elements to share reusable UI components between different products.
+That way, even if the frameworks or framework versions differ across products, we can still share an implementation.
 Another use case that comes to mind is distributing small self-contained units of code.
 Like, for example, a checkout widget that you can just drop onto your website to handle payments.
 -->
@@ -223,20 +237,41 @@ class: max-h-full overflow-auto
 
 </div>
 
-<div v-click="1" style="background-image: url(/assets/web_component_lifecycle.png);" class="absolute inset-0 bg-contain bg-no-repeat"/>
+<div v-click="1" style="background-image: url(/assets/web_component_lifecycle_0.png);" class="relative h-full bg-contain bg-no-repeat">
+  <div 
+    v-click="3"
+    style="background-image: url(/assets/web_component_lifecycle_1.png);"
+    class="absolute inset-0 bg-contain bg-no-repeat" 
+  />
+  <div 
+    v-click="4"
+    style="background-image: url(/assets/web_component_lifecycle_2.png);"
+    class="absolute inset-0  bg-contain bg-no-repeat" 
+  />
+  <div 
+    v-click="5"
+    style="background-image: url(/assets/web_component_lifecycle_3.png);"
+    class="absolute inset-0  bg-contain bg-no-repeat" 
+  />
+  <div 
+    v-click="6"
+    style="background-image: url(/assets/web_component_lifecycle_4.png);"
+    class="absolute inset-0  bg-contain bg-no-repeat" 
+  />
+</div>
 </div>
 
 ::right::
 
 <div class="max-h-full overflow-auto" style="scrollbar-width: none;">
-<<< @/snippets/my-counter.js {1-26|1|42-44|2-14|15-31|32-36|37-39}{maxHeight: '100%'}
+<<< @/snippets/my-counter.js {all|1|42-44|2-14|15-31|32-36|37-39}{maxHeight: '100%'}
 
 </div>
 
 <!--
 Now let's quickly go over how custom elements are built using vanilla javascript.
 While the example looks a bit verbose, it is actually just a very simple counter component, where the value the counter is incremented by can be set via an attribute.
-In this example, we subclass `HTMLElement` to create our own `MyCounter` custom element class.
+[click] In this example, we subclass `HTMLElement` to create our own `MyCounter` custom element class.
 [click] To register the custom element we call customElements.define() passing in a tag name and the class we defined above.
 Once registered, we can use our custom element in the DOM like any other html element.
 This means, we can instantiate the 'my-counter' element using the `document.createElement()` API.
@@ -245,13 +280,13 @@ To render our element, we need to attach it to the DOM, for example by appending
 [click] This is where the `connectedCallback` lifecycle method is called, telling us that our element is now part of the DOM.
 In the example, we create a button element and append it to the shadow root of our custom element.
 We also setup an event listener for the button's click event.
-You can sort of think of the `connectedCallback` as the equivalent of a svelte component's `onMount` lifecycle method.
-Except that since svelte doesn't render for us, we have to manually insert and update our content in the DOM by calling the `render()` method.
+You can sort of think of the `connectedCallback` as the equivalent of a svelte component's `onMount` lifecycle hook.
+Except that since web component's don't conveniently render for us, we have to manually insert and update our content in the DOM by calling the `render()` method we define below.
 [click] While our component is connected to the DOM, we are notified about changes to the attributes of our element via the `attributeChangedCallback`.
 Please note, that since html attributes are always strings, we need to convert the attribute value to a number before storing it in our component's increments property.
-Since we don't have reactivity in vanilla JavaScript we need to manually call `render()` to reflect the changed state in the UI.
+After updating it, since we don't have reactivity in vanilla JavaScript we need to manually re-call `render()` to reflect the changed state in the UI.
 [click] Finally, we have the `disconnectedCallback` lifecycle method, which is called when our element is removed from the DOM.
-This is where we can clean up side effects we caused during our component's lifetime, such as adding event listeners or rendering to the dom.
+This is where we can clean up side effects we caused during our component's lifetime, such as removing event listeners or cleaning up to the dom.
 -->
 
 ---
@@ -290,14 +325,15 @@ layout: two-cols-header
   - `customElement: true`
 - `Component.element` property contains constructor
   - can be used to register custom element
+- <SvelteWcCounter/>
 - But it does not yet work quite like expected...
-  - <SvelteWcCounter/>
 
 </v-clicks>
 
 <!--
-As you just saw, building web components using vanilla JavaScript quickly turns your code into imperative spaghetti rather quickly.
+As you just saw, building web components using vanilla JavaScript turns your code into imperative spaghetti rather quickly.
 I don't have to tell you that svelte allows us to write the same functionality in way less, declarative code.
+Where we needed 40 lines earlier, we can get that same behavior with svelte in less than 10 lines of code.
 But how do we turn this svelte component into a custom element?
 [click] Literally all we have to do for this to work is adding `customElement: true` to the compiler settings in our svelte config.
 If we build our project now, an `element` property is newly added to the default export of our compiled svelte component.
@@ -306,8 +342,8 @@ We can now pass this constructor alongside a tag name to `customElements.define(
 Once we've registered it, all that's left to do is using our tag name to reference the element within our html
 [click] & voila, our svelte built web component is ready to be used within any context,
 be it vanilla JS or another framework like react or vue.
-In fact, the slides you are looking at right now are built using vite, and we are seemlessly using a svelte component within them.
-However, there is one issue with the code we just wrote... let's try actually incrementing...
+In fact, the slides you are looking at right now are built using vue, and we are seemlessly using a svelte component within them.
+[click] However, there is one issue with the code we just wrote... let's try actually incrementing...
 Ooops, I'm not entirely sure, but I don't think this is how a counter is supposed to work...
 -->
 
@@ -347,23 +383,29 @@ layout: two-cols-header
 
 - custom element `<svelte:options>`
   - `props`
+    - `type` (convert from string)
+    - `attribute` (kebabize prop names)
+    - `reflect` (reflect prop values back)
   - other settings
-    - `shadow`
+    - `shadow` (disable shadow DOM)
     - `tag` (automatic `customElements.define`)
-    - `extends`
+    - `extends` (modify base class)
 - `$host()` rune
 
 </v-clicks>
 
 <!--
-So, we're not adding the numbers, but seem to be concatenating them instead.
-This is because we pass the `increments` prop via an attribute to the custom element.
-Svelte has no way of knowing which types we want our props to be, so we have to give it a hint.
+So, instead of adding the numbers, we seem to be concatenating them instead.
+This is because we pass the `increments` prop via an attribute to our custom element & attributes are always strings.
+Svelte has no way of knowing which types we want our props to be in,
+so to convert it to the right type we have to give it a hint.
 [click] We can do this by using the `customElement` attribute of the `svelte:options` element.
 Here we can pass a configuration object, that has a 'props' property, that allows us to specify what type conversion we want to run for each prop.
-While props are camelCased in svelte, HTML attributes are case insensitive and therefore usually written in kebab-case.
-The `props` setting allows us to accomodate for this by via the `attribute` property.
-As well as allowing us to reflect the prop's value back to the element's attributes.
+Now values passed to our component via the increments attribute will be converted to numbers and everything should work as expected.
+While we're at it, let's also add a `startingValue` to our counter.
+[click] While props are camelCased in svelte, HTML attributes are case insensitive and therefore usually written in kebab-case.
+The `props` setting allows us to accomodate for this via the `attribute` property.
+We can also automatically reflect prop values back to the custom element's attributes in the dom. To enable this, we have to set `reflect` to true.
 [click] There is a whole range of other settings we can pass here, but I don't find myself using them very often.
 The `tag` property allows us to skip manually defining the custom element, with the compiler taking care of it for us.
 However, since registering the same custom element multiple times will throw an error, I prefer doing this manually checking for existing registrations beforehand.
@@ -372,51 +414,183 @@ Finally, if you really need fine grained control over the custom element, you ca
 [click] Since event handling was overhauled in svelte 5, we no longer use svelte's `createEventDispatcher`, but rather pass event handlers as component props.
 However, when dealing with custom elements, passing event handlers is not an option, since we can only pass strings as attributes.
 What we do instead is, use JavaScript's native way of dispatching custom events.
-For this, we first use the `$host()` rune to get a reference to the custom element's instance & then create the element's `dispatchEvent` method,
+For this, we first use the `$host()` rune to get a reference to the custom element's instance & then call the element's `dispatchEvent` method,
 passing in the event we want to dispatch.
 -->
 
 ---
 
 ```yaml
-layout: image-left
-image: /assets/svelte_web_component_lifecycle.png
-backgroundSize: 50%
+layout: two-cols-header
+class: max-h-full overflow-auto
 ```
 
 # Anatomy of a Svelte-built Web Component
 
-- TODO: match lifecycle slide with what I'm going to say
-- Empty `shell` web component
-- Svelte component mounted in wrapper's shadow DOM
-  - svelte component is just a regular svelte component
-- mount/unmount of inner component delayed by one microtask
-- convert attributes to props
+::left::
+
+<div v-click="1" style="background-image: url(/assets/svelte_web_component_lifecycle_0.png);" class="relative h-full bg-contain bg-no-repeat">
+  <div 
+    v-click="2"
+    style="background-image: url(/assets/svelte_web_component_lifecycle_1.png);"
+    class="absolute inset-0 bg-contain bg-no-repeat" 
+  />
+  <div 
+    v-click="3"
+    style="background-image: url(/assets/svelte_web_component_lifecycle_2.png);"
+    class="absolute inset-0  bg-contain bg-no-repeat" 
+  />
+  <div 
+    v-click="4"
+    style="background-image: url(/assets/svelte_web_component_lifecycle_3.png);"
+    class="absolute inset-0  bg-contain bg-no-repeat" 
+  />
+  <div 
+    v-click="5"
+    style="background-image: url(/assets/svelte_web_component_lifecycle_4.png);"
+    class="absolute inset-0  bg-contain bg-no-repeat" 
+  />
+</div>
+
+::right::
+
+<v-clicks>
+
+- Matryoshka approach
+  - Outside: empty `shell` web component
+  - Inside: svelte component
+- `constructor`
+  - register observed attributes
+- `connectedCallback` -> async
+  - mount nested svelte component to shadow root
+- `attributeChangedCallback`
+  - convert attribute to correct type
+  - pass props to nested svelte component
+- `disconnectedCallback` -> async
+  - unmount nested svelte component
+
+</v-clicks>
 
 <!--
 But how exactly is our svelte component turned into a web component?
 You might think that svelte as a compiler could generate code along the lines of the vanilla web component we wrote earlier.
 And in fact, up until Svelte 4 it actually used to do something just like that.
 But that approach came with quite a few issues and gnarly edge cases.
-So nowadays, svelte employs more of an matrioshka approach to generating web components.
-Let's take a look at the lifecycle of a svelte-built web component to see how things come together:
+[click] So nowadays, svelte employs more of an matrioshka approach to generating web components.
 On the outside, we have a pretty barebones custom element.
-This custom element is basically just an empty shell, that wires up the custom element lifecycle with the one of our component.
-On creation, it creates the shadow dom and registers all our props as attributes to be observed.
-[Click] When the element connects to the DOM, our wrapper component waits for a microtask to ensure all children are mounted [WHY?].
-Then it simply mounts our component as a regular svelte component to it's shadow dom.
-[Click] Whenever an observed attribute changes, the wrapper will use the converter specified in the svelte options to convert the new value to the correct type,
+This custom element is basically just an empty shell, that wires up the custom element's lifecycle with the lifecycle of our svelte component on the inside.
+Let's take a look at the different stages in the lifecycle of a svelte-built web component to see how things come together:
+[click] On creation, the outside wrapper creates the shadow dom and registers all our props as attributes to be observed.
+[click] When the element connects to the DOM, our wrapper component waits for a microtask to ensure all children are mounted [WHY?].
+Then it simply mounts our component as a regular svelte component to its own shadow root.
+[click] Whenever an observed attribute changes, the wrapper will use the converter specified in the svelte options to convert the new value to the correct type,
 before then passing it on to our svelte component.
-[Click] Finally, when the wrapper is disconnected from the DOM, it will once again wait for a microtask, this time to ensure that we're not just moving places in the DOM.
-If the web component is not reconnected for a microtask however, it will unmount our svelte component and cleanup effects.
+[click] Finally, when the wrapper is disconnected from the DOM, it will once again wait for a microtask, this time to ensure that we're not just moving places in the DOM.
+And, if the web component is not reconnected for a microtask, it will unmount the nested svelte component and cleanup effects.
 -->
 
 ---
 
 # Issues When Building Web Components with Svelte
 
+<v-clicks>
+
 - getting started (can't use sveltekit)
 - configuration (kebab-case, statically analyzable svelte:options)
 - currently no way to SSR
 
+</v-clicks>
+
+<!--
+Sadly, building web components with svelte is not all sunshine and rainbows though.
+[click] While svelte kit comes with a package mode that allows you to easily build svelte component libraries,
+the mode does not allow you to actually compile your components before bundling.
+So if you want to ship web components, you'll have to setup your project from scratch.
+While this is not a blocker per se, it does mean you have to do a bit more work to get started.
+[click] Another issue is with configuring your attributes through the `<svelte:options>` element.
+You have to manually add kebab-case attributes and types for all your props, which can be quite a lot of boilerplate if you have a lot of them.
+Especially if you use TypeScript it would be neat if the compiler could just automatically set the right converters & kebabize your attributes for you.
+Credit where credit is due, vue.js handles this beautifully where the information provided to `defineProps` is leveraged to automate this step entirely.
+[click] Finally, this is more of a web component issue rather than a svelte related one,
+but there is currently no way to render your svelte-built web components on the server.
+As you can imagine, this is the biggest blocker for using web components in production, since your html is now missing vital information before your client side code kicks in,
+and you have to deal with layout shifts on hydration.
+Google's `lit` library provides an experimental way of rendering lit-built web components on the server,
+but since web components are a browser standard there is no universal way of doing SSR for them on the server.
+-->
+
 ---
+
+```yaml
+layout: end
+```
+
+<v-clicks>
+
+# Introducing `svebcomponents` alpha!
+
+</v-clicks>
+
+<!--
+I'd hate to end this talk on a negative note though, so I got busy working on user-land solutions to these problems.
+While it is still a work in progress, I'm thrilled to announce the alpha release of a new library called `@svebcomponents`!
+[click] TODO: confetti & svebcomponents & scott complaining about `sve`-starting names
+-->
+
+---
+
+# `@svebcomponents/create`
+
+<v-clicks>
+
+- create a project
+- TODO: this package does not exist yet
+
+</v-clicks>
+
+<!--
+TODO
+[click] The first package is `@svebcomponents/create`, which is a CLI tool that helps you create a new project with all the necessary dependencies and configuration.
+-->
+
+---
+
+# `@svebcomponents/auto-options`
+
+<v-clicks>
+
+- kebabize
+- type inference
+- can be overridden with manual configuration
+
+</v-clicks>
+
+<!--
+TODO:
+[click] The second package is `@svebcomponents/auto-options`, which automatically generates the `<svelte:options>` element for you by leveraging type information from your props.
+-->
+
+---
+
+# `@svebcomponents/ssr`
+
+<v-clicks>
+
+- using the `ElementRendererRegistry` API proposed by the lit team
+- adds ssr output to svelte built web components
+
+</v-clicks>
+
+<!--
+TODO
+-->
+
+---
+
+```yaml
+layout: end
+```
+
+# Thank you for listening, fellow lizards!
+
+This talk was brought to you by Big JavaScript
