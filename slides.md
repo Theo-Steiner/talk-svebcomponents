@@ -39,9 +39,9 @@ Let's get a bit meta for a second and talk about why you would even want to buil
 layout: two-cols
 ```
 
-<div style="background-image: url(/assets/harris_richard.png);" class="relative h-full bg-contain bg-no-repeat">
+<div style="background-image: url(/public/harris_richard.png);" class="relative h-full bg-contain bg-no-repeat">
   <div 
-    style="background-image: url(/assets/harris_lizard.png);"
+    style="background-image: url(/public/harris_lizard.png);"
     class="absolute inset-0 bg-contain bg-no-repeat opacity-0 transition-opacity" 
     :class="{
       'opacity-50': $clicks === 2,
@@ -50,7 +50,7 @@ layout: two-cols
   />
   <div 
     v-click="4"
-    style="background-image: url(/assets/harris_lizard_conspiracy.png);"
+    style="background-image: url(/public/harris_lizard_conspiracy.png);"
     class="absolute inset-0  bg-contain bg-no-repeat" 
   />
 </div>
@@ -58,7 +58,7 @@ layout: two-cols
 ::right::
 
 <div class="relative h-full w-full">
-<div v-click="1" style="background-image: url(/assets/rich_harris_why_i_dont_use_webcomponents.png);" class="bg-contain bg-no-repeat bg-center absolute inset-0"/>
+<div v-click="1" style="background-image: url(/public/rich_harris_why_i_dont_use_webcomponents.png);" class="bg-contain bg-no-repeat bg-center absolute inset-0"/>
 <div class="absolute inset-0 transform rotate-6 scale-75">
   <Tweet v-click="2" id="1839484645194277111"/>
 </div>
@@ -94,9 +94,9 @@ Like, you know, me!
 layout: two-cols
 ```
 
-<div style="background-image: url(/assets/theo_angel.png);" class="relative h-full bg-contain bg-no-repeat">
+<div style="background-image: url(/public/theo_angel.png);" class="relative h-full bg-contain bg-no-repeat">
   <div 
-    style="background-image: url(/assets/theo_steiner.png);"
+    style="background-image: url(/public/theo_steiner.png);"
     class="absolute inset-0 bg-contain bg-no-repeat opacity-0 transition-opacity" 
     :class="{
       'opacity-100': $clicks > 1,
@@ -104,7 +104,7 @@ layout: two-cols
   />
   <div 
     v-click="5"
-    style="background-image: url(/assets/theo_lizard.png);"
+    style="background-image: url(/public/theo_lizard.png);"
     class="absolute inset-0  bg-contain bg-no-repeat" 
   />
 </div>
@@ -131,8 +131,8 @@ layout: two-cols
 <div class="absolute inset-0 transform -rotate-6">
   <Tweet v-click="6" id="1833417673251946987"/>
 </div>
-<div v-click="7" style="background-image: url(/assets/theo_whats_in_the_box.png);" class="bg-contain bg-no-repeat bg-center absolute inset-0"/>
-<div v-click="8" style="background-image: url(/assets/theo_components_at_home.png);" class="bg-contain bg-no-repeat bg-center absolute inset-0 transform rotate-6"/>
+<div v-click="7" style="background-image: url(/public/theo_whats_in_the_box.png);" class="bg-contain bg-no-repeat bg-center absolute inset-0"/>
+<div v-click="8" style="background-image: url(/public/theo_components_at_home.png);" class="bg-contain bg-no-repeat bg-center absolute inset-0 transform rotate-6"/>
 </div>
 
 <!--
@@ -237,25 +237,25 @@ class: max-h-full overflow-auto
 
 </div>
 
-<div v-click="1" style="background-image: url(/assets/web_component_lifecycle_0.png);" class="relative h-full bg-contain bg-no-repeat">
+<div v-click="1" style="background-image: url(/public/web_component_lifecycle_0.png);" class="relative h-full bg-contain bg-no-repeat">
   <div 
     v-click="3"
-    style="background-image: url(/assets/web_component_lifecycle_1.png);"
+    style="background-image: url(/public/web_component_lifecycle_1.png);"
     class="absolute inset-0 bg-contain bg-no-repeat" 
   />
   <div 
     v-click="4"
-    style="background-image: url(/assets/web_component_lifecycle_2.png);"
+    style="background-image: url(/public/web_component_lifecycle_2.png);"
     class="absolute inset-0  bg-contain bg-no-repeat" 
   />
   <div 
     v-click="5"
-    style="background-image: url(/assets/web_component_lifecycle_3.png);"
+    style="background-image: url(/public/web_component_lifecycle_3.png);"
     class="absolute inset-0  bg-contain bg-no-repeat" 
   />
   <div 
     v-click="6"
-    style="background-image: url(/assets/web_component_lifecycle_4.png);"
+    style="background-image: url(/public/web_component_lifecycle_4.png);"
     class="absolute inset-0  bg-contain bg-no-repeat" 
   />
 </div>
@@ -429,26 +429,26 @@ class: max-h-full overflow-auto
 
 ::left::
 
-<div v-click="1" style="background-image: url(/assets/svelte_web_component_lifecycle_0.png);" class="relative h-full bg-contain bg-no-repeat">
+<div v-click="1" style="background-image: url(/public/svelte_web_component_lifecycle_0.png);" class="relative h-full bg-contain bg-no-repeat dark:invert">
   <div 
     v-click="2"
-    style="background-image: url(/assets/svelte_web_component_lifecycle_1.png);"
-    class="absolute inset-0 bg-contain bg-no-repeat" 
+    style="background-image: url(/public/svelte_web_component_lifecycle_1.png);"
+    class="absolute inset-0 bg-contain bg-no-repeat dark:invert" 
   />
   <div 
     v-click="3"
-    style="background-image: url(/assets/svelte_web_component_lifecycle_2.png);"
-    class="absolute inset-0  bg-contain bg-no-repeat" 
+    style="background-image: url(/public/svelte_web_component_lifecycle_2.png);"
+    class="absolute inset-0 bg-contain bg-no-repeat dark:invert" 
   />
   <div 
     v-click="4"
-    style="background-image: url(/assets/svelte_web_component_lifecycle_3.png);"
-    class="absolute inset-0  bg-contain bg-no-repeat" 
+    style="background-image: url(/public/svelte_web_component_lifecycle_3.png);"
+    class="absolute inset-0 bg-contain bg-no-repeat dark:invert" 
   />
   <div 
     v-click="5"
-    style="background-image: url(/assets/svelte_web_component_lifecycle_4.png);"
-    class="absolute inset-0  bg-contain bg-no-repeat" 
+    style="background-image: url(/public/svelte_web_component_lifecycle_4.png);"
+    class="absolute inset-0 bg-contain bg-no-repeat dark:invert" 
   />
 </div>
 
@@ -476,7 +476,7 @@ But how exactly is our svelte component turned into a web component?
 You might think that svelte as a compiler could generate code along the lines of the vanilla web component we wrote earlier.
 And in fact, up until Svelte 4 it actually used to do something just like that.
 But that approach came with quite a few issues and gnarly edge cases.
-[click] So nowadays, svelte employs more of an matrioshka approach to generating web components.
+[click] So nowadays, svelte employs more of an matryoshka approach to generating web components.
 On the outside, we have a pretty barebones custom element.
 This custom element is basically just an empty shell, that wires up the custom element's lifecycle with the lifecycle of our svelte component on the inside.
 Let's take a look at the different stages in the lifecycle of a svelte-built web component to see how things come together:
@@ -529,11 +529,15 @@ layout: end
 
 # Introducing `svebcomponents` alpha!
 
+<img src="/public/svorry_svott.png" class="w-1/2 mx-auto mb-4"/>
+
 </v-clicks>
 
 <!--
-I'd hate to end this talk on a negative note though, so I got busy working on user-land solutions to these problems.
-While it is still a work in progress, I'm thrilled to announce the alpha release of a new library called `@svebcomponents`!
+I'd hate to end this talk on a negative note though,
+so I'm happy to share that I was busy working on some user-land tooling.
+While it's still far from production ready, today I would like to announce the alpha release of a new library called `svebcomponents`!
+This library is a collection of packages that aim to improve the DX and widen the possibilities of building web components with svelte.
 [click] TODO: confetti & svebcomponents & scott complaining about `sve`-starting names
 -->
 
