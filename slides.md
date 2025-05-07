@@ -39,9 +39,9 @@ Let's get a bit meta for a second and talk about why you would even want to buil
 layout: two-cols
 ```
 
-<div style="background-image: url(/public/harris_richard.png);" class="relative h-full bg-contain bg-no-repeat">
+<div style="background-image: url(/harris_richard.png);" class="relative h-full bg-contain bg-no-repeat">
   <div 
-    style="background-image: url(/public/harris_lizard.png);"
+    style="background-image: url(/harris_lizard.png);"
     class="absolute inset-0 bg-contain bg-no-repeat opacity-0 transition-opacity" 
     :class="{
       'opacity-50': $clicks === 2,
@@ -50,7 +50,7 @@ layout: two-cols
   />
   <div 
     v-click="4"
-    style="background-image: url(/public/harris_lizard_conspiracy.png);"
+    style="background-image: url(/harris_lizard_conspiracy.png);"
     class="absolute inset-0  bg-contain bg-no-repeat" 
   />
 </div>
@@ -58,7 +58,7 @@ layout: two-cols
 ::right::
 
 <div class="relative h-full w-full">
-<div v-click="1" style="background-image: url(/public/rich_harris_why_i_dont_use_webcomponents.png);" class="bg-contain bg-no-repeat bg-center absolute inset-0"/>
+<div v-click="1" style="background-image: url(/rich_harris_why_i_dont_use_webcomponents.png);" class="bg-contain bg-no-repeat bg-center absolute inset-0"/>
 <div class="absolute inset-0 transform rotate-6 scale-75">
   <Tweet v-click="2" id="1839484645194277111"/>
 </div>
@@ -94,9 +94,9 @@ Like, you know, me!
 layout: two-cols
 ```
 
-<div style="background-image: url(/public/theo_angel.png);" class="relative h-full bg-contain bg-no-repeat">
+<div style="background-image: url(/theo_angel.png);" class="relative h-full bg-contain bg-no-repeat">
   <div 
-    style="background-image: url(/public/theo_steiner.png);"
+    style="background-image: url(/theo_steiner.png);"
     class="absolute inset-0 bg-contain bg-no-repeat opacity-0 transition-opacity" 
     :class="{
       'opacity-100': $clicks > 1,
@@ -104,7 +104,7 @@ layout: two-cols
   />
   <div 
     v-click="5"
-    style="background-image: url(/public/theo_lizard.png);"
+    style="background-image: url(/theo_lizard.png);"
     class="absolute inset-0  bg-contain bg-no-repeat" 
   />
 </div>
@@ -131,8 +131,8 @@ layout: two-cols
 <div class="absolute inset-0 transform -rotate-6">
   <Tweet v-click="6" id="1833417673251946987"/>
 </div>
-<div v-click="7" style="background-image: url(/public/theo_whats_in_the_box.png);" class="bg-contain bg-no-repeat bg-center absolute inset-0"/>
-<div v-click="8" style="background-image: url(/public/theo_components_at_home.png);" class="bg-contain bg-no-repeat bg-center absolute inset-0 transform rotate-6"/>
+<div v-click="7" style="background-image: url(/theo_whats_in_the_box.png);" class="bg-contain bg-no-repeat bg-center absolute inset-0"/>
+<div v-click="8" style="background-image: url(/theo_components_at_home.png);" class="bg-contain bg-no-repeat bg-center absolute inset-0 transform rotate-6"/>
 </div>
 
 <!--
@@ -237,25 +237,25 @@ class: max-h-full overflow-auto
 
 </div>
 
-<div v-click="1" style="background-image: url(/public/web_component_lifecycle_0.png);" class="relative h-full bg-contain bg-no-repeat">
+<div v-click="1" style="background-image: url(/web_component_lifecycle_0.png);" class="relative h-full bg-contain bg-no-repeat">
   <div 
     v-click="3"
-    style="background-image: url(/public/web_component_lifecycle_1.png);"
+    style="background-image: url(/web_component_lifecycle_1.png);"
     class="absolute inset-0 bg-contain bg-no-repeat" 
   />
   <div 
     v-click="4"
-    style="background-image: url(/public/web_component_lifecycle_2.png);"
+    style="background-image: url(/web_component_lifecycle_2.png);"
     class="absolute inset-0  bg-contain bg-no-repeat" 
   />
   <div 
     v-click="5"
-    style="background-image: url(/public/web_component_lifecycle_3.png);"
+    style="background-image: url(/web_component_lifecycle_3.png);"
     class="absolute inset-0  bg-contain bg-no-repeat" 
   />
   <div 
     v-click="6"
-    style="background-image: url(/public/web_component_lifecycle_4.png);"
+    style="background-image: url(/web_component_lifecycle_4.png);"
     class="absolute inset-0  bg-contain bg-no-repeat" 
   />
 </div>
@@ -429,25 +429,25 @@ class: max-h-full overflow-auto
 
 ::left::
 
-<div v-click="1" style="background-image: url(/public/svelte_web_component_lifecycle_0.png);" class="relative h-full bg-contain bg-no-repeat dark:invert">
+<div v-click="1" style="background-image: url(/svelte_web_component_lifecycle_0.png);" class="relative h-full bg-contain bg-no-repeat dark:invert">
   <div 
     v-click="2"
-    style="background-image: url(/public/svelte_web_component_lifecycle_1.png);"
+    style="background-image: url(/svelte_web_component_lifecycle_1.png);"
     class="absolute inset-0 bg-contain bg-no-repeat dark:invert" 
   />
   <div 
     v-click="3"
-    style="background-image: url(/public/svelte_web_component_lifecycle_2.png);"
+    style="background-image: url(/svelte_web_component_lifecycle_2.png);"
     class="absolute inset-0 bg-contain bg-no-repeat dark:invert" 
   />
   <div 
     v-click="4"
-    style="background-image: url(/public/svelte_web_component_lifecycle_3.png);"
+    style="background-image: url(/svelte_web_component_lifecycle_3.png);"
     class="absolute inset-0 bg-contain bg-no-repeat dark:invert" 
   />
   <div 
     v-click="5"
-    style="background-image: url(/public/svelte_web_component_lifecycle_4.png);"
+    style="background-image: url(/svelte_web_component_lifecycle_4.png);"
     class="absolute inset-0 bg-contain bg-no-repeat dark:invert" 
   />
 </div>
@@ -461,12 +461,12 @@ class: max-h-full overflow-auto
   - Inside: svelte component
 - `constructor`
   - register observed attributes
-- `connectedCallback` -> async
+- `connectedCallback` → async
   - mount nested svelte component to shadow root
 - `attributeChangedCallback`
   - convert attribute to correct type
   - pass props to nested svelte component
-- `disconnectedCallback` -> async
+- `disconnectedCallback` → async
   - unmount nested svelte component
 
 </v-clicks>
@@ -495,9 +495,14 @@ And, if the web component is not reconnected for a microtask, it will unmount th
 
 <v-clicks>
 
-- getting started (can't use sveltekit)
-- configuration (kebab-case, statically analyzable svelte:options)
-- currently no way to SSR
+- Getting Started
+  - `svelte package` can't be used
+  - requires custom build setup
+- Boilerplate
+  - manual setting of attribute name & type required
+  - `<svelte:options/>` needs to be statically analyzable
+    - no importing / dynamic generation
+- currently no way to SSR web components in Svelte-land
 
 </v-clicks>
 
@@ -529,64 +534,63 @@ layout: end
 
 # Introducing `svebcomponents` alpha!
 
-<img src="/public/svorry_svott.png" class="w-1/2 mx-auto mb-4"/>
-
 </v-clicks>
 
 <!--
 I'd hate to end this talk on a negative note though,
 so I'm happy to share that I was busy working on some user-land tooling.
-While it's still far from production ready, today I would like to announce the alpha release of a new library called `svebcomponents`!
-This library is a collection of packages that aim to improve the DX and widen the possibilities of building web components with svelte.
-[click] TODO: confetti & svebcomponents & scott complaining about `sve`-starting names
+[click] While it's still far from production ready, today I would like to announce the alpha release of a new library called `svebcomponents`!
+
+It's a collection of utilities that aim to improve the DX and widen the possibilities of building web components with svelte.
 -->
 
 ---
 
-# `@svebcomponents/create`
+```yaml
+layout: two-cols-header
+```
+
+# Using `svebcomponents` alpha
+
+::left::
+
+<div style="background-image: url(/svorry_svott.png);" class="relative h-full bg-contain bg-no-repeat mx-1.5rem my-4rem"/>
+
+::right::
 
 <v-clicks>
 
-- create a project
-- TODO: this package does not exist yet
+- easy to get started with
+  - ```bash
+    pnpx degit @svebcomponents/template my-wc-project
+    ```
+- No more boilerplate
+  - `@svebcomponents/auto-options`
+    - infers types & kebabizes attributes for you
+- SSR support (highly experimental, here be dragons!)
+  - lit-proposed `ElementRendererRegistry` API
+  - provide `ElementRenderer` for svelte-built WCs
+  - server side utils & vite plugin to SSR
+- (Don't use it in production just yet, please..?!)
 
 </v-clicks>
 
 <!--
-TODO
-[click] The first package is `@svebcomponents/create`, which is a CLI tool that helps you create a new project with all the necessary dependencies and configuration.
--->
-
----
-
-# `@svebcomponents/auto-options`
-
-<v-clicks>
-
-- kebabize
-- type inference
-- can be overridden with manual configuration
-
-</v-clicks>
-
-<!--
-TODO:
-[click] The second package is `@svebcomponents/auto-options`, which automatically generates the `<svelte:options>` element for you by leveraging type information from your props.
--->
-
----
-
-# `@svebcomponents/ssr`
-
-<v-clicks>
-
-- using the `ElementRendererRegistry` API proposed by the lit team
-- adds ssr output to svelte built web components
-
-</v-clicks>
-
-<!--
-TODO
+So I set out to tackle all three issues I just talked about.
+[click] First of all, I wanted to make it as easy to get started with building web components with svelte as starting a new sveltekit project.
+To solve this, I created a template project that you can just `degit` & you should be good to go!
+[click] The second issue I wanted to tackle was all the boilerplate you need to write to turn your props into attributes.
+Vue does this so beautifully by leveraging type information, so I wrote a rollup plugin that does just that.
+If you use TypeScript, it should just automatically infer all the correct settings for you.
+[click] Finally, I wanted to add support for server side rendering.
+While this still is very much experimental, I took a shot at implementing the `ElementRendererRegistry` API that was proposed by the lit team.
+This comes with many, many moving parts and is a bit of a rabbit hole, so I won't go into too much detail here.
+Basically, it allows authors of web components, to provide an `ElementRenderer` that can be used in serverside JavaScript environments to render web components.
+I then created a way for us to provide a `ElementRenderer` for our svelte-built web components,
+and combined with a vite plugin that let's us manipulate custom elements inside our svelte templates and some server-side runtime JavaScript,
+we can in fact render web components to a declarative shadow dom representation.
+[click] If you're interested in this, please play around with the template and let me know what you think.
+But please, don't use it in production just yet, I haven't even had the time to write tests for it and also haven't thought about security implications, so there might be some vulnerabilities in there.
 -->
 
 ---
@@ -598,3 +602,10 @@ layout: end
 # Thank you for listening, fellow lizards!
 
 This talk was brought to you by Big JavaScript
+
+<img class="absolute right-2 -bottom-12 h-md" src="/theo_lizard_full.png" />
+
+<!--
+That's all I wanted to share with you today, thank you very much for listening & I am excited to hear your feedback on `svebcomponents`!
+Bye bye fellow lizards!
+-->
