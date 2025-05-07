@@ -562,7 +562,7 @@ layout: two-cols-header
 
 - easy to get started with
   - ```bash
-    pnpx degit @svebcomponents/template my-wc-project
+    pnpx degit svebcomponents/template my-wc-project
     ```
 - No more boilerplate
   - `@svebcomponents/auto-options`
