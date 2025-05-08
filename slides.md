@@ -7,8 +7,25 @@ class: text-center
 drawings:
   persist: false
 transition: slide-left
+layout: two-cols
 mdc: true
 ---
+
+<div style="background-image: url(/svebcomponents_qr.png);" class="relative h-full bg-contain bg-no-repeat mx-1.5rem bg-center" />
+
+::right::
+
+<div class="h-full flex flex-col justify-center">
+
+## svebcomponents.theosteiner.de
+
+</div>
+
+---
+
+```yaml
+layout: intro
+```
 
 <style>
 * {
